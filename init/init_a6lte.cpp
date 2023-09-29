@@ -36,10 +36,9 @@
 #include <android-base/logging.h>
 
 #include "vendor_init.h"
-#include "property_service.h"
 
-using android::base::GetProperty;
-using android::init::property_set;
+using ::android::base::GetProperty;
+using ::android::base::SetProperty;
 
 void property_override(const std::string& name, const std::string& value)
 {
@@ -73,73 +72,72 @@ void property_override_quad(const std::string& boot_prop, const std::string& pro
 }
 
 void init_dsds() {
-    property_set("ro.vendor.multisim.set_audio_params", "true");
-    property_set("ro.vendor.multisim.simslotcount", "2");
-    property_set("persist.radio.multisim.config", "dsds");
+    SetProperty("ro.vendor.multisim.set_audio_params", "true");
+    SetProperty("ro.vendor.multisim.simslotcount", "2");
+    SetProperty("persist.radio.multisim.config", "dsds");
 }
 
 void vendor_load_properties()
 {
     // Init a dummy BT MAC address, will be overwritten later
-    property_set("ro.boot.btmacaddr", "00:00:00:00:00:00");
+    SetProperty("ro.boot.btmacaddr", "00:00:00:00:00:00");
 
     std::string bootloader = GetProperty("ro.bootloader","");
 
-    if (bootloader.find("J600FX") == 0) {
-    /* SM-J600F */
-        property_override_quad("ro.product.model", "ro.product.odm.model", "ro.product.system.model", "ro.product.vendor.model", "SM-J600F");
-        property_override_quad("ro.product.name", "ro.product.odm.name", "ro.product.system.name", "ro.product.vendor.name", "j6ltecis");
+    if (bootloader.find("A600FX") == 0) {
+    /* SM-A600F */
+        property_override_quad("ro.product.model", "ro.product.odm.model", "ro.product.system.model", "ro.product.vendor.model", "SM-A600F");
+        property_override_quad("ro.product.name", "ro.product.odm.name", "ro.product.system.name", "ro.product.vendor.name", "a6ltecis");
 
         init_dsds();
 
-    } else if (bootloader.find("J600FN") == 0) {
-    /* SM-J600FN */
-        property_override_quad("ro.product.model", "ro.product.odm.model", "ro.product.system.model", "ro.product.vendor.model", "SM-J600FN");
-        property_override_quad("ro.product.name", "ro.product.odm.name", "ro.product.system.name", "ro.product.vendor.name", "j6ltexx");
+    } else if (bootloader.find("A600FN") == 0) {
+    /* SM-A600FN */
+        property_override_quad("ro.product.model", "ro.product.odm.model", "ro.product.system.model", "ro.product.vendor.model", "SM-A600FN");
+        property_override_quad("ro.product.name", "ro.product.odm.name", "ro.product.system.name", "ro.product.vendor.name", "a6ltexx");
 
         init_dsds();
 
-    } else if (bootloader.find("J600GU") == 0) {
-    /* SM-J600G */
-        property_override_quad("ro.product.model", "ro.product.odm.model", "ro.product.system.model", "ro.product.vendor.model", "SM-J600G");
-        property_override_quad("ro.product.name", "ro.product.odm.name", "ro.product.system.name", "ro.product.vendor.name", "j6lteub");
+    } else if (bootloader.find("A600GU") == 0) {
+    /* SM-A600G */
+        property_override_quad("ro.product.model", "ro.product.odm.model", "ro.product.system.model", "ro.product.vendor.model", "SM-A600G");
+        property_override_quad("ro.product.name", "ro.product.odm.name", "ro.product.system.name", "ro.product.vendor.name", "a6lteub");
 
         init_dsds();
 
-    } else if (bootloader.find("J600GF") == 0) {
-    /* SM-J600GF */
-        property_override_quad("ro.product.model", "ro.product.odm.model", "ro.product.system.model", "ro.product.vendor.model", "SM-J600GF");
-        property_override_quad("ro.product.name", "ro.product.odm.name", "ro.product.system.name", "ro.product.vendor.name", "j6lteins");
+    } else if (bootloader.find("A600GF") == 0) {
+    /* SM-A600GF */
+        property_override_quad("ro.product.model", "ro.product.odm.model", "ro.product.system.model", "ro.product.vendor.model", "SM-A600GF");
+        property_override_quad("ro.product.name", "ro.product.odm.name", "ro.product.system.name", "ro.product.vendor.name", "a6lteins");
 
         init_dsds();
 
-    } else if (bootloader.find("J600GT") == 0) {
-    /* SM-J600GT */
-        property_override_quad("ro.product.model", "ro.product.odm.model", "ro.product.system.model", "ro.product.vendor.model", "SM-J600GT");
-        property_override_quad("ro.product.name", "ro.product.odm.name", "ro.product.system.name", "ro.product.vendor.name", "j6ltedtvvj");
+    } else if (bootloader.find("A600GT") == 0) {
+    /* SM-A600GT */
+        property_override_quad("ro.product.model", "ro.product.odm.model", "ro.product.system.model", "ro.product.vendor.model", "SM-A600GT");
+        property_override_quad("ro.product.name", "ro.product.odm.name", "ro.product.system.name", "ro.product.vendor.name", "a6ltedtvvj");
 
         init_dsds();
 
-    } else if (bootloader.find("J600G") == 0) {
-    /* SM-J600G */
-        property_override_quad("ro.product.model", "ro.product.odm.model", "ro.product.system.model", "ro.product.vendor.model", "SM-J600G");
-        property_override_quad("ro.product.name", "ro.product.odm.name", "ro.product.system.name", "ro.product.vendor.name", "j6ltedx");
+    } else if (bootloader.find("A600G") == 0) {
+    /* SM-A600G */
+        property_override_quad("ro.product.model", "ro.product.odm.model", "ro.product.system.model", "ro.product.vendor.model", "SM-A600G");
+        property_override_quad("ro.product.name", "ro.product.odm.name", "ro.product.system.name", "ro.product.vendor.name", "a6ltedx");
 
         init_dsds();
 
-    } else if (bootloader.find("J600N") == 0) {
-    /* SM-J600N */
-        property_override_quad("ro.product.model", "ro.product.odm.model", "ro.product.system.model", "ro.product.vendor.model", "SM-J600N");
-        property_override_quad("ro.product.name", "ro.product.odm.name", "ro.product.system.name", "ro.product.vendor.name", "j6ltekx");
+    } else if (bootloader.find("A600N") == 0) {
+    /* SM-A600N */
+        property_override_quad("ro.product.model", "ro.product.odm.model", "ro.product.system.model", "ro.product.vendor.model", "SM-A600N");
+        property_override_quad("ro.product.name", "ro.product.odm.name", "ro.product.system.name", "ro.product.vendor.name", "a6ltekx");
 
         init_dsds();
     }
 
     /* Common properties*/
-    property_override("ro.build.description", "samsung/j6ltexx/j6lte:10/QP1A.190711.020/J600FNXXU7CTC8:user/release-keys");
-    property_override_quad("ro.product.device", "ro.product.odm.device", "ro.product.system.device", "ro.product.vendor.device", "j6lte");
+    property_override("ro.build.description", "samsung/a6ltexx/a6lte:10/QP1A.190711.020/A600FNXXU8CUC1:user/release-keys");
+    property_override_quad("ro.product.device", "ro.product.odm.device", "ro.product.system.device", "ro.product.vendor.device", "a6lte");
 
     std::string device = GetProperty("ro.product.device", "");
     LOG(ERROR) << "Found bootloader id %s setting build properties for %s device\n" << bootloader.c_str() << device.c_str();
 }
-

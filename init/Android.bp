@@ -15,9 +15,9 @@
 //
 
 cc_library_static {
-    name: "libinit_j6lte",
+    name: "libinit_a6lte",
     recovery_available: true,
-    srcs: ["init_j6lte.cpp"],
+    srcs: ["init_a6lte.cpp"],
     include_dirs: [
         "system/core/base/include",
         "system/core/init"

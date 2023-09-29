@@ -18,7 +18,7 @@
 set -e
 
 VENDOR=samsung
-DEVICE=j6lte
+DEVICE=a6lte
 
 export INITIAL_COPYRIGHT_YEAR=2017
 
