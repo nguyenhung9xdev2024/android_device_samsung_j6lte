@@ -21,6 +21,9 @@ BOARD_USE_TFA_AMP := true
 # Assert
 TARGET_OTA_ASSERT_DEVICE := a6lte,a6ltecis,a6ltexx,a6lteub,a6lteins,a6ltedtvvj,a6ltekx,a6ltedx
 
+# ANT+
+BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
+
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
